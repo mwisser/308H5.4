@@ -298,3 +298,62 @@ function printLongestWord(words) {
 }
 
 console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "Todd"]));
+
+// Objects
+
+const user = {
+  name: "Matthew Wisser",
+  email: "matthew.wisser@gmail.com",
+  age: 40,
+  purchased: []
+};
+
+const updatedUser = { ...user, email: "newemail@example.com" };
+
+const updatedUserWithAge = { ...updatedUser, age: updatedUser.age++ };
+
+const updatedUserWithLocation = { ...updatedUserWithAge, location: "Phoenix, AZ" };
+
+updatedUserWithLocation.purchased.push("carbohydrates");
+updatedUserWithLocation.purchased.push("peace of mind");
+updatedUserWithLocation.purchased.push("Merino jodhpurs");
+
+console.log(updatedUserWithLocation.purchased[2]);
+
+updatedUserWithLocation.friend = {
+  name: "Jane Smith",
+  age: 30,
+  location: "Tempe, AZ",
+  purchased: []
+};
+
+console.log(updatedUserWithLocation.friend.name);
+
+console.log(updatedUserWithLocation.friend.location);
+
+updatedUserWithLocation.friend.age = 55;
+
+updatedUserWithLocation.friend.purchased.push("The One Ring");
+updatedUserWithLocation.friend.purchased.push("A latte");
+
+console.log(updatedUserWithLocation.friend.purchased[1]);
+
+for (let i = 0; i < updatedUserWithLocation.purchased.length; i++) {
+  console.log(updatedUserWithLocation.purchased[i]);
+}
+
+for (let i = 0; i < updatedUserWithLocation.friend.purchased.length; i++) {
+  console.log(updatedUserWithLocation.friend.purchased[i]);
+}
+
+function updateUser() {
+  updatedUserWithLocation.age++;
+  updatedUserWithLocation.name = updatedUserWithLocation.name.toUpperCase();
+}
+
+function oldAndLoud(person) {
+  person.age++;
+  person.name = person.name.toUpperCase();
+}
+
+oldAndLoud(updatedUserWithLocation);
